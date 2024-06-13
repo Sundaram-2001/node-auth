@@ -1,9 +1,11 @@
 const express=require("express");
 const app=express();
+const {addUser}=require("./queries")
 app.use(express.json())
 app.get("/",(req,res)=>{
     res.send("test");
 })
+app.post("/addUser",addUser);
 app.post("/register",(req,res)=>{
     const {firstName, lastName,email,password}=req.body;
     console.log({firstName,lastName,email,password});
